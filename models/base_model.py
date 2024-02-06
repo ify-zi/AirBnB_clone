@@ -55,5 +55,4 @@ class BaseModel:
         if "updated_at" in class_dict:
             class_dict["updated_at"] = class_dict["updated_at"].strftime(time)
         class_dict["__class__"] = self.__class__.__name__
-        
         return class_dict

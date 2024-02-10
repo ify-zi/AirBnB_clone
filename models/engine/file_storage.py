@@ -38,17 +38,17 @@ class FileStorage:
             serializes python objects to JSON file
         """
         json_objects = {}
-        for key in self.__objects:
-            json_objects[key] = self.__objects.to_dict()
-        with open(self.__file_path, 'w', encoding='utf-8') as f:
-            json.dump(self.__objects, f)
+        for key, value in self.__objects.items():
+            json_objects[key] = value.to_dict()
+        with open(self.__file_path, 'w') as f:
+            json.dump(json_objects, f)
 
     def reload(self):
         """
             deserialize from json to python object dict
         """
         try:
-            with open(self.__file_path, 'r', encoding='utf-8') as f:
+            with open(self.__file_path, 'r') as f:
                 file_dict = json.load(f)
             for key in file_dict:
                 self.__objects[key] = classes[file_dict[key]["__class__"]](**file_dict[key])

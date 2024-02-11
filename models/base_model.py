@@ -25,7 +25,7 @@ class BaseModel:
                 if i == "created_at" or i == "updated_at":
                     self.__dict__[i] = datetime.strptime(j, tform)
                 else:
-                    self.__dict__[i] = v
+                    self.__dict__[i] = j
         else:
             models.storage.new(self)
 

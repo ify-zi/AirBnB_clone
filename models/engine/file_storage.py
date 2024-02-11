@@ -8,7 +8,7 @@ import json
 from models.base_model import BaseModel
 
 
-classes = {"BaseModel" : BaseModel}
+classes = {"BaseModel": BaseModel}
 
 
 class FileStorage:
@@ -51,6 +51,7 @@ class FileStorage:
             with open(self.__file_path, 'r') as f:
                 file_dict = json.load(f)
             for key in file_dict:
-                self.__objects[key] = classes[file_dict[key]["__class__"]](**file_dict[key])
-        except:
+                self.__objects[key] = classes[file_dict[key]["__class__"]]
+                (**file_dict[key])
+        except FileNotFoundError:
             pass

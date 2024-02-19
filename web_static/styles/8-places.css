@@ -19,6 +19,8 @@
     margin: 20px;
     display: inline-block;
     position: relative;
+    vertical-align: top;
+    min-height: 650px;
 }
 
 .places h2{
@@ -32,7 +34,7 @@
     border-radius: 50%;
     min-width: 60px;
     height: 60px;
-    top: 5%;
+    top: 2%;
     right: 5%;
     position: absolute;
     display: flex;
